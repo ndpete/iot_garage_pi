@@ -29,8 +29,7 @@ myShadowClient.configureMQTTOperationTimeout(5)  # 5 sec
 
 myShadowClient.connect()
 # Create a device shadow instance using persistent subscription
-myDeviceShadow = myShadowClient.createShadowHandlerWithName(
-    "NateRaspberryPi", True)
+myDeviceShadow = myShadowClient.createShadowHandlerWithName("NateRaspberryPi", True)
 # Shadow operations
 myDeviceShadow.shadowRegisterDeltaCallback(echo)
 # myDeviceShadow.shadowUpdate(myJSONPayload, customCallback, 5)
