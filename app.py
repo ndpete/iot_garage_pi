@@ -17,7 +17,7 @@ GPIO.setup(sensor_pin, GPIO.IN)
 GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
-def sensor_callback():
+def sensor_callback(pin):
     time.sleep(1)
     update_garage_state(shadow)
 
