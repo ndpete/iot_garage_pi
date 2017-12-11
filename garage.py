@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 # GPIO SETUP
 relay_pin = 27
 sensor_pin = 17
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(relay_pin, GPIO.OUT)
 GPIO.setup(sensor_pin, GPIO.IN)
