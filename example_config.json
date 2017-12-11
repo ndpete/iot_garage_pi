@@ -1,0 +1,6 @@
+{
+    "root_ca": "root ca path",
+    "private_key": "private key path",
+    "certificate": "certificate path",
+    "endpoint": "iot endpoint"
+}
