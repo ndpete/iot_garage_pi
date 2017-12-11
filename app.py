@@ -54,7 +54,7 @@ def delta_callback(payload, responseStatus, token):
 
 
 def update_garage_state(deviceShadow):
-    newPayload = {'state': {'reported': check_sensor()}}
+    newPayload = {'state': {'reported': {'state': check_sensor()}}}
     print(newPayload)
     deviceShadow.shadowUpdate(json.dumps(newPayload), None, 5)
 
