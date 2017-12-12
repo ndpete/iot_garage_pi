@@ -55,8 +55,9 @@ def delta_callback(payload, responseStatus, token):
 
 def update_garage_state(deviceShadow):
     newPayload = {'state': {'reported': {'state': check_sensor()}}}
-    print(newPayload)
+    print(json.dumps(newPayload))
     deviceShadow.shadowUpdate(json.dumps(newPayload), None, 5)
+    print("Sent")
 
 
 # IOT Setup
@@ -69,6 +70,7 @@ myShadowClient.connect()
 shadow = myShadowClient.createShadowHandlerWithName("shadow-garage", True)
 
 # Update initial state
+print("setting current state")
 update_garage_state(shadow)
 
 # wait for events
