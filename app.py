@@ -13,7 +13,6 @@ sensor_pin = 17
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(relay_pin, GPIO.OUT)
-GPIO.setup(sensor_pin, GPIO.IN)
 GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
@@ -67,7 +66,7 @@ myShadowClient.configureCredentials(config['root_ca'], config['private_key'], co
 myShadowClient.configureConnectDisconnectTimeout(10)
 myShadowClient.configureMQTTOperationTimeout(5)
 myShadowClient.connect()
-shadow = myShadowClient.createShadowHandlerWithName("shadow-garage", True)
+shadow = myShadowClient.createShadowHandlerWithName("NateRaspberryPi", True)
 
 # Update initial state
 print("setting current state")
