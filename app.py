@@ -17,6 +17,7 @@ GPIO.setup(sensor_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 def sensor_callback(pin):
+    print("sensor callback")
     time.sleep(1)
     update_garage_state(shadow)
 
@@ -49,10 +50,11 @@ def delta_callback(payload, responseStatus, token):
         update_garage_state(shadow)
     else:
         print("Already at desired state")
-        update_garage_state(shadow)
 
 
 def update_garage_state(deviceShadow):
+    print("update_shadow")
+    time.sleep(1)
     newPayload = {'state': {'reported': {'state': check_sensor()}}}
     print(json.dumps(newPayload))
     deviceShadow.shadowUpdate(json.dumps(newPayload), None, 5)
