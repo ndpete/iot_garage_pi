@@ -20,6 +20,7 @@ def sensor_callback(pin):
     print("sensor callback")
     time.sleep(1)
     update_garage_state(shadow)
+    print("sensor callback end")
 
 
 def check_sensor():
@@ -36,6 +37,7 @@ def toggle_door():
 
 
 def delta_callback(payload, responseStatus, token):
+    print("delta callback")
     print(payload)
     payload = json.loads(payload)
     desired_state = payload['state']['state']
@@ -45,11 +47,9 @@ def delta_callback(payload, responseStatus, token):
     if current_state != desired_state:
         print("Changing door state to: {}".format(desired_state))
         toggle_door()
-        # wait some time
-        time.sleep(3)
-        update_garage_state(shadow)
     else:
         print("Already at desired state")
+    print("delta end")
 
 
 def update_garage_state(deviceShadow):
@@ -71,6 +71,7 @@ myShadowClient.connect()
 shadow = myShadowClient.createShadowHandlerWithName("NateRaspberryPi", True)
 
 # Update initial state
+print("Garage Door Pi iot")
 print("setting current state")
 update_garage_state(shadow)
 
